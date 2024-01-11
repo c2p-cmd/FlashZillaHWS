@@ -61,24 +61,16 @@ struct EditView: View {
     }
     
     func loadData() {
-        guard let data = UserDefaults.standard.data(forKey: "Cards"),
-              let decoded = try? JSONDecoder().decode([Card].self, from: data) else {
-            return
-        }
-        
-        cards = decoded
+        cards = Card.loadCards()
     }
     
     func saveData() {
-        guard let data = try? JSONEncoder().encode(cards) else { return }
-        UserDefaults.standard.set(data, forKey: "Cards")
+        Card.saveCards(cards)
     }
 }
 
 #Preview {
     NavigationStack {
-        EditView {
-            
-        }
+        EditView { }
     }
 }

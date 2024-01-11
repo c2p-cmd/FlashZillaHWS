@@ -106,11 +106,7 @@ struct FlashCardsView: View {
             }
         }
         .onAppear {
-            guard let data = UserDefaults.standard.data(forKey: "Cards"),
-                  let decoded = try? JSONDecoder().decode([Card].self, from: data) else {
-                return
-            }
-            cards = decoded
+            cards = Card.loadCards()
         }
     }
     
@@ -142,11 +138,7 @@ struct FlashCardsView: View {
     func resetCards() {
         timeRemaining = 100
         isActive = true
-        guard let data = UserDefaults.standard.data(forKey: "Cards"),
-              let decoded = try? JSONDecoder().decode([Card].self, from: data) else {
-            return
-        }
-        cards = decoded
+        cards = Card.loadCards()
     }
 }
 
