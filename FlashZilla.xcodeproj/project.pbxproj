@@ -52,7 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				0062AE2E2B4FC3B100E47C84 /* FlashZillaApp.swift */,
-				0062AE302B4FC3B100E47C84 /* ContentView.swift */,
+				0062AE3C2B4FC3BE00E47C84 /* Views */,
 				0062AE322B4FC3B200E47C84 /* Assets.xcassets */,
 				0062AE342B4FC3B200E47C84 /* Preview Content */,
 			);
@@ -65,6 +65,14 @@
 				0062AE352B4FC3B200E47C84 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0062AE3C2B4FC3BE00E47C84 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0062AE302B4FC3B100E47C84 /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
