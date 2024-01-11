@@ -8,14 +8,34 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showEditScreen = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            if showEditScreen {
+                EditView {
+                    showEditScreen = false
+                }
+            } else {
+                FlashCardsView()
+                    .toolbar {
+                        ToolbarItem(placement: .principal) {
+                            Button {
+                                withAnimation {
+                                    showEditScreen = true
+                                }
+                            } label: {
+                                Label("Add Cards", systemImage: "plus.circle")
+                                    .font(.largeTitle)
+                            }
+                            .buttonStyle(.borderless)
+                            .background(.black.opacity(0.75))
+                            .clipShape(.circle)
+                            .foregroundStyle(.white)
+                        }
+                    }
+            }
         }
-        .padding()
     }
 }
 
